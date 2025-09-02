@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva de Alquileres en Uruguay - Bien Seguro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for active navigation link */
+        .nav-link.active {
+            background-color: #e0f2fe; /* light-sky-100 */
+            color: #0c4a6e; /* sky-800 */
+            font-weight: 600;
+        }
+        /* Style for content sections */
+        .content-section {
+            display: none; /* Hide all sections by default */
+        }
+        .content-section.active {
+            display: block; /* Show the active section */
+        }
+        /* Improve list styling */
+        .content-section ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+         .content-section li {
+            margin-bottom: 0.5rem;
+            transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition */
+        }
+         .content-section p {
+            margin-bottom: 1rem;
+            transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition */
+         }
+        /* Style for headings */
+        .content-section h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 1rem; /* mb-4 */
+            color: #1e3a8a; /* blue-800 */
+            border-bottom: 1px solid #e5e7eb; /* gray-200 */
+            padding-bottom: 0.5rem; /* pb-2 */
+        }
+         .content-section h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1rem; /* mt-4 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: #1d4ed8; /* blue-700 */
+         }
+         .content-section h5 {
+             font-size: 1rem; /* text-base */
+             font-weight: 600; /* font-semibold */
+             margin-top: 0.75rem; /* mt-3 */
+             margin-bottom: 0.25rem; /* mb-1 */
+             color: #1e40af; /* blue-800 */
+         }
+        /* Style for glossary terms */
+        .glossary-term {
+            font-weight: 600;
+            color: #1e40af; /* blue-800 */
+        }
+
+        /* Styles for role filtering */
+        .role-filter-button.active {
+            background-color: #1d4ed8; /* blue-700 */
+            color: white;
+            font-weight: 600;
+        }
+        /* Style for highlighted content */
+        .highlight-role {
+             opacity: 1 !important;
+        }
+        /* Style for faded (non-relevant) content */
+        .fade-role {
+            opacity: 0.3;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            #app-container {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 45vh; /* Increased height for more modules */
+                overflow-y: auto;
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            #content {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            #role-filter {
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex flex-col md:flex-row h-screen" id="app-container">
+        <aside id="sidebar" class="w-full md:w-72 bg-white p-4 border-r border-gray-200 overflow-y-auto"> <h2 class="text-xl font-bold mb-4 text-blue-900">Guía Bien Seguro</h2>
+            <p class="text-sm text-gray-600 mb-4">Tu Manual para Alquilar en Uruguay</p>
+            <nav>
+                <ul class="space-y-1">
+                    <li><a href="#bienvenida" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="bienvenida">Bienvenida Bien Seguro</a></li>
+                    <li><a href="#encontrar_propiedad_bs" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="encontrar_propiedad_bs">1. Encontrar Propiedad (BS)</a></li>
+                    <li><a href="#introduccion_general" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="introduccion_general">2. Introducción General</a></li>
+                    <li><a href="#requisitos_garantias" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="requisitos_garantias">3. Requisitos y Garantías</a></li>
+                    <li><a href="#reserva_bs" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="reserva_bs">4. Proceso de Reserva (BS)</a></li>
+                    <li><a href="#formalizacion_bs" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="formalizacion_bs">5. Formalización Contrato (BS)</a></li>
+                    <li><a href="#costos_iniciales" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="costos_iniciales">6. Costos Iniciales</a></li>
+                    <li><a href="#gastos_mensuales" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="gastos_mensuales">7. Gastos Mensuales</a></li>
+                    <li><a href="#rol_inmobiliarias" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="rol_inmobiliarias">8. Rol General Inmobiliarias</a></li>
+                    <li><a href="#marco_legal" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="marco_legal">9. Marco Legal</a></li>
+                    <li><a href="#rescision" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="rescision">10. Rescisión de Contrato</a></li>
+                    <li><a href="#desalojos" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="desalojos">11. Proceso de Desalojo</a></li>
+                    <li><a href="#consejos_inquilinos" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="consejos_inquilinos">12. Consejos para Inquilinos</a></li>
+                    <li><a href="#fraudes" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="fraudes">13. Fraudes (Alq. Turísticos)</a></li>
+                    <li><a href="#glosario" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="glosario">14. Glosario</a></li>
+                    <li><a href="#recursos" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="recursos">15. Recursos Útiles</a></li>
+                    <li><a href="#apoyo_bs" class="nav-link block py-2 px-3 rounded hover:bg-gray-100 transition duration-150 ease-in-out" data-target="apoyo_bs">16. Apoyo Bien Seguro</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="content" class="flex-1 p-6 md:p-8 overflow-y-auto">
+            <div id="role-filter" class="mb-6 flex flex-wrap gap-2">
+                 <button class="role-filter-button px-4 py-2 rounded bg-white text-blue-700 border border-blue-300 hover:bg-blue-100 transition duration-150 ease-in-out" data-role-filter="inquilino">Soy Inquilino</button>
+                 <button class="role-filter-button px-4 py-2 rounded bg-white text-green-700 border border-green-300 hover:bg-green-100 transition duration-150 ease-in-out" data-role-filter="arrendador">Soy Arrendador</button>
+                 <button class="role-filter-button px-4 py-2 rounded bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 transition duration-150 ease-in-out active" data-role-filter="todos">Mostrar Todo</button>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md">
+
+                <section id="bienvenida" class="content-section">
+                    <h3>Bienvenido a la Aplicación Bien Seguro: Tu Guía para Alquilar en Uruguay</h3>
+                    <p data-role="ambos">¡Hola! En <strong>Inmobiliaria Bien Seguro</strong>, estamos comprometidos a guiarte en cada paso del proceso de alquiler de tu nuevo hogar en Uruguay.</p>
+                    <p data-role="ambos">Hemos creado esta completa aplicación a modo de manual de instrucciones para que tengas toda la información que necesitas al alcance de tu mano.</p>
+                </section>
+
+                <section id="encontrar_propiedad_bs" class="content-section" data-role="inquilino">
+                    <h3>Módulo 1: Encontrando tu Propiedad Ideal con Bien Seguro</h3>
+                    <p>En Bien Seguro, sabemos que la búsqueda de la propiedad perfecta es el inicio de todo. Para facilitarte esta tarea:</p>
+                    <ul>
+                        <li>Publicamos nuestras propiedades en más de 10 portales web líderes en Uruguay, incluyendo Mercado Libre, InfoCasas, El Buscador de Casas y Más, Gallito Luis, Argenprop, Buscando Casa y CasasWeb.</li>
+                        <li>Compartimos nuestras propiedades con una amplia red de colegas, clientes e inversores, ampliando las posibilidades de encontrar tu hogar ideal.</li>
+                        <li>Nuestros avisos están diseñados para ofrecerte la mayor cantidad de información relevante. Encontrarás referencias claras, enlaces directos a más detalles y una galería de fotos completa.</li>
+                    </ul>
+                    <p>Si encuentras una propiedad que te interese en alguno de estos portales, no dudes en contactarnos directamente a través del correo electrónico indicado en el aviso. Nuestro equipo te responderá de manera rápida y profesional.</p>
+                </section>
+
+                <section id="introduccion_general" class="content-section">
+                    <h3>Módulo 2: Introducción General al Alquiler en Uruguay</h3>
+                    <p data-role="inquilino">El alquiler se ha convertido en una opción importante para muchos uruguayos, especialmente jóvenes que enfrentan dificultades para comprar una casa propia debido al desfase entre sus ingresos y los precios del mercado inmobiliario.</p>
+                    <p data-role="ambos">El sistema de garantías de alquiler es esencial en Uruguay, proporcionando seguridad tanto al inquilino como al propietario.</p>
+                    <p data-role="inquilino">Sin embargo, para los inquilinos, los requisitos a menudo se consideran excesivos y trabas. La dificultad para acceder a una garantía es un obstáculo significativo.</p>
+                    <p data-role="arrendador">Alquilar a través de una inmobiliaria implica que el propietario también tiene responsabilidades.</p>
+                </section>
+
+                <section id="requisitos_garantias" class="content-section">
+                    <h3>Módulo 3: Requisitos Esenciales y Tipos de Garantías</h3>
+                    <p data-role="inquilino">Para asegurar un proceso de alquiler ágil y eficiente, te solicitaremos la siguiente documentación:</p>
+                    <ul data-role="inquilino">
+                        <li>
+                            <h5>Documento de identidad vigente:</h5>
+                            <p>Para ciudadanos uruguayos, la cédula de identidad es indispensable. Para extranjeros, se recomienda presentar el pasaporte junto con la residencia temporal o permanente en Uruguay, ya que algunas garantías pueden requerirlo.</p>
+                        </li>
+                        <li>
+                            <h5>Comprobante de ingresos:</h5>
+                            <p>Necesitamos acreditar tu capacidad de pago.</p>
+                            <ul>
+                                <li><strong>Empleados:</strong> Deberán presentar los recibos de sueldo de los últimos 3 meses. Generalmente, el ingreso mensual requerido es de al menos tres veces el valor del alquiler.</li>
+                                <li><strong>Trabajadores independientes:</strong> Se solicitará una constancia de ingresos emitida y sellada por un escribano público, junto con las últimas declaraciones de impuestos (DGI) como respaldo adicional.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h5>Libre de Clearing de Informes:</h5>
+                             <p>Es fundamental que no figures en el <span class="glossary-term">Clearing de Informes</span> como deudor. Este registro contiene el historial financiero y los incumplimientos de pago.</p>
+                        </li>
+                        <li>
+                            <h5>Presentación de una Garantía de Alquiler:</h5>
+                             <p>En Uruguay, es necesario contar con una garantía que respalde el cumplimiento del contrato. Aceptamos diversas opciones:</p>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-6">Tipos de Garantías Aceptadas</h4>
+                     <ul data-role="ambos">
+                        <li>
+                            <h5>Depósito en el Banco Hipotecario del Uruguay (BHU):</h5>
+                            <p>Consiste en un depósito en <span class="glossary-term">Unidades Indexadas (UI)</span> que puede ser de hasta cinco meses de alquiler para vivienda y diez para otros destinos. El BHU cobra una comisión por la constitución. La Ley 14.219 establece que este depósito debe completarse en caso de aumento del alquiler, y los arrendatarios <span data-role="inquilino">(inquilinos)</span> pueden convertir la garantía a <span class="glossary-term">Obligaciones Hipotecarias Reajustables (OHR)</span> en cuotas.</p>
+                        </li>
+                        <li>
+                            <h5>ANDA (Asociación Nacional de Afiliados):</h5>
+                            <p>Es un sistema mutual que actúa como garante para sus socios activos. Requiere ser socio activo con una antigüedad mínima, presentar documentación (cédula, comprobante de ingresos) y tener un aval financiero según ingresos <span data-role="inquilino">(requisito inquilino)</span>. Las cuotas suelen ser más bajas y ofrece soporte legal al inquilino <span data-role="inquilino">(beneficio inquilino)</span>. Cobra una prima mensual tanto al inquilino como al propietario <span data-role="ambos">(costo para ambos)</span>.</p>
+                        </li>
+                        <li>
+                            <h5>Contaduría General de la Nación (CGN):</h5>
+                            <p>Una garantía estatal para trabajadores públicos y privados con ingresos demostrables <span data-role="inquilino">(requisito inquilino)</span>. Cubre un monto de alquiler de hasta el 50% de los ingresos nominales del inquilino. Cubre completamente al propietario <span data-role="arrendador">(beneficio arrendador)</span>. No tiene costos mensuales directos para el inquilino <span data-role="inquilino">(beneficio inquilino)</span>, pero los procesos pueden ser más burocráticos y lentos <span data-role="inquilino">(desventaja inquilino)</span>. El Fondo de Garantía de Alquiler del MVOT ofrece una garantía similar en convenio con la CGN y la ANV para quienes no poseen otra propiedad <span data-role="inquilino">(opción inquilino)</span>. Funciona como agente de retención del alquiler del sueldo del inquilino <span data-role="inquilino">(mecanismo inquilino)</span>.</p>
+                        </li>
+                        <li>
+                            <h5>Seguro de Alquiler (Aseguradoras):</h5>
+                            <p>Ofrecido por aseguradoras privadas como Porto Seguro. Funcionan como un seguro que cubre al propietario por impago <span data-role="arrendador">(beneficio arrendador)</span>. Requiere el pago de una póliza mensual por parte del inquilino <span data-role="inquilino">(costo inquilino)</span>. El importe máximo a garantizar será de hasta el 30% del ingreso líquido del solicitante, y se pueden incluir hasta 3 personas para completar los requisitos de ingresos <span data-role="inquilino">(flexibilidad inquilino)</span>. Ofrecen procesos más rápidos y son más flexibles para quienes no tienen mucha antigüedad laboral <span data-role="inquilino">(beneficio inquilino)</span>.</p>
+                        </li>
+                        <li>
+                            <h5>Garantía de Propiedad:</h5>
+                            <p>Un tercero <span data-role="inquilino">(garante del inquilino)</span> ofrece una propiedad como garantía. Se requiere documentación que acredite que la propiedad está libre de gravámenes y que el garante es el dueño. Si la propiedad se vende durante el alquiler, se debe presentar otra garantía.</p>
+                        </li>
+                         <li>
+                            <h5>Fianza o garantía personal:</h5>
+                            <p>Un tercero <span data-role="inquilino">(garante del inquilino)</span> manifiesta solvencia. La Ley 14.219 regula esta figura, enfocándose en la solvencia del garante y prohibiendo la hipoteca directa de una propiedad como garantía. Se permite sustituir la fianza personal por un depósito en OHR si no hay acción judicial iniciada.</p>
+                        </li>
+                        <li>
+                            <h5>Ley de Urgente Consideración (LUC) - Alquiler sin Garantía Tradicional:</h5>
+                            <p>Para alquileres menores a 100 <span class="glossary-term">Unidades Reajustables (UR)</span>, la <span class="glossary-term">LUC</span> estableció un mecanismo que permite un acuerdo más flexible sobre la garantía entre inquilino y propietario, pudiendo incluso prescindirse de ella. El contrato debe estar acorde a la LUC.</p>
+                            <p data-role="arrendador">A cambio, el arrendador se beneficia de un proceso de desalojo más abreviado en caso de incumplimiento (intimación por telegrama, plazos reducidos).</p>
+                            <p data-role="inquilino">El inquilino pierde el beneficio de un año por buen pagador.</p>
+                            <p data-role="inquilino">Ofrece mayor flexibilidad y menos burocracia para el inquilino.</p>
+                            <p data-role="arrendador">Podría no garantizar al propietario la misma seguridad que otras opciones.</p>
+                            <p data-role="ambos">Existe incertidumbre sobre su adopción generalizada.</p>
+                        </li>
+                    </ul>
+                     <p data-role="inquilino" class="mt-4">En algunos casos, podríamos solicitar referencias personales o comerciales.</p>
+                     <p data-role="inquilino">Podríamos pedir una constancia de domicilio.</p>
+                </section>
+
+                <section id="reserva_bs" class="content-section" data-role="inquilino">
+                    <h3>Módulo 4: Proceso de Reserva de tu Propiedad con Bien Seguro</h3>
+                    <p>Una vez que hayas encontrado la propiedad que deseas alquilar y hayamos acordado el precio, podrás reservarla mediante un depósito que generalmente equivale al 50% del valor de un mes de alquiler.</p>
+                    <p>Este depósito (seña) se mantendrá en custodia por Bien Seguro hasta el momento de la firma del contrato.</p>
+                    <p>Simultáneamente, te proporcionaremos un documento donde se detallarán las condiciones del contrato de alquiler.</p>
+                </section>
+
+                <section id="formalizacion_bs" class="content-section" data-role="inquilino">
+                    <h3>Módulo 5: La Formalización del Contrato de Alquiler con Bien Seguro</h3>
+                    <p>Una vez que tu garantía y toda la documentación sean revisadas y aceptadas, coordinaremos la firma del contrato de alquiler y del inventario detallado de la propiedad.</p>
+                    <p>El contrato establecerá claramente los plazos, el monto del alquiler y todas las condiciones acordadas. Es importante que lo leas detenidamente y aclares cualquier duda.</p>
+                    <p>Recomendamos que el contrato incluya una cláusula de resolución anticipada para establecer las condiciones en caso de que necesites finalizar el contrato antes del plazo acordado.</p>
+                    <p>En el momento de la firma, deberás presentar la garantía acordada y realizar el primer pago del alquiler, así como los gastos iniciales asociados (ver Módulo 6).</p>
+                    <p data-role="ambos">Te informaremos sobre la importancia de la inscripción del contrato en el Registro de la Propiedad; aunque no siempre es obligatorio, ofrece mayor seguridad jurídica.</p>
+                    <p data-role="ambos">La Ley 14.219 [ver Módulo 9] establece normativas específicas para los contratos de arrendamiento, diferenciando según el año de construcción del inmueble.</p>
+                </section>
+
+                 <section id="costos_iniciales" class="content-section" data-role="inquilino">
+                    <h3>Módulo 6: Entendiendo los Costos Iniciales</h3>
+                    <p>Al momento de firmar el contrato, es importante que tengas en cuenta los siguientes costos iniciales (generalmente a cargo del inquilino):</p>
+                    <ul>
+                        <li>
+                            <h5>Honorarios de la inmobiliaria (Bien Seguro):</h5>
+                            <p>Equivalentes a un mes de alquiler más el <span class="glossary-term">IVA</span>. Este monto cubre la redacción y revisión del contrato, la gestión de la firma, la realización del inventario detallado y el trámite de la garantía.</p>
+                            <p>La comisión por administración a cargo del inquilino no puede exceder el 1% del monto total del contrato y puede abonarse hasta en seis cuotas mensuales consecutivas junto con el alquiler.</p>
+                            <p>Es importante tener en cuenta que los honorarios inmobiliarios generalmente se abonan en efectivo.</p>
+                        </li>
+                        <li>
+                            <h5>Posible mes de alquiler adelantado:</h5>
+                             <p>Aunque en Uruguay los alquileres suelen pagarse a mes vencido, algunos contratos pueden requerir un mes adelantado.</p>
+                        </li>
+                        <li>
+                            <h5>Aplicación del Depósito de Reserva (Seña):</h5>
+                             <p>El depósito de reserva (seña) que realizaste inicialmente (ver Módulo 4) se aplicará a la liquidación de estos costos iniciales.</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="gastos_mensuales" class="content-section" data-role="inquilino">
+                    <h3>Módulo 7: Gastos Mensuales Adicionales a Considerar</h3>
+                    <p>Además del pago mensual del alquiler acordado, como inquilino, serás responsable de los siguientes gastos de forma continua:</p>
+                    <ul>
+                        <li><strong>Gastos comunes:</strong> Cubren el mantenimiento general del edificio, la limpieza de las áreas comunes y otros servicios administrados por la administración del inmueble.</li>
+                        <li><strong>Tributos domiciliarios:</strong> Son los impuestos bimestrales cobrados por la Intendencia de Montevideo, conocidos popularmente como los "impuestos de puerta".</li>
+                        <li><strong>Pago del alquiler:</strong> Se realizará mensualmente a través del banco según lo estipulado en el contrato.</li>
+                        <li><strong>Servicios:</strong> Consumo de <span class="glossary-term">UTE</span> (luz), <span class="glossary-term">OSE</span> (agua, si corresponde), gas, <span class="glossary-term">ANTEL</span> (internet/teléfono), etc.</li>
+                        <li><strong>Gastos adicionales para casas:</strong> En el caso de alquilar una casa, deberás considerar la tarifa de saneamiento, los tributos municipales y el servicio de agua potable proporcionado por <span class="glossary-term">OSE</span>.</li>
+                    </ul>
+                    <p data-role="ambos">Es fundamental saber que el pago de los consumos, gastos comunes u otros servicios accesorios a la locación es tu responsabilidad <span data-role="inquilino">(inquilino)</span>. Si el propietario <span data-role="arrendador">(arrendador)</span> abona estos gastos por dos o más meses, la deuda se considerará indivisible con el alquiler.</p>
+                </section>
+
+                <section id="rol_inmobiliarias" class="content-section">
+                    <h3>Módulo 8: El Rol General de las Inmobiliarias</h3>
+                    <p data-role="ambos">Las inmobiliarias juegan un papel central en el proceso de alquiler.</p>
+                    <ul data-role="ambos">
+                        <li>Ayudan en la búsqueda y selección del inmueble <span data-role="inquilino">(servicio al inquilino)</span>.</li>
+                        <li>Gestionan la reserva de la propiedad <span data-role="ambos">(servicio a ambos)</span>.</li>
+                        <li>Solicitan y verifican la documentación del inquilino y la garantía <span data-role="arrendador">(servicio al arrendador)</span>.</li>
+                        <li>Redactan y revisan el contrato de alquiler <span data-role="ambos">(servicio a ambos)</span>.</li>
+                        <li>Realizan un inventario del inmueble <span data-role="ambos">(servicio a ambos)</span>.</li>
+                        <li>Gestionan el trámite de la garantía de alquiler <span data-role="ambos">(servicio a ambos)</span>.</li>
+                        <li>Actúan como intermediarios entre el inquilino y el propietario <span data-role="ambos">(servicio a ambos)</span>.</li>
+                    </ul>
+                    <p data-role="ambos">Se recomienda asegurarse de que la inmobiliaria esté registrada en el Ministerio de Turismo, especialmente para alquileres turísticos, para evitar fraudes (ver Módulo 13).</p>
+                    <p data-role="arrendador">Los administradores de bienes inmuebles obligan a los propietarios en los actos que celebren con los inquilinos. Se presume que representan a los dueños en gestiones administrativas o judiciales. La exhibición de recibos de pago puede probar su calidad de administrador.</p>
+                </section>
+
+                <section id="marco_legal" class="content-section">
+                    <h3>Módulo 9: Marco Legal Relevante</h3>
+                    <p data-role="ambos">La <strong>Ley 14.219</strong> es fundamental, estableciendo el régimen de garantías, los procedimientos de desalojo y normativas específicas para los contratos de arrendamiento (diferenciando según año de construcción). El Capítulo VII está dedicado a las garantías. Esta ley limita el monto de la garantía y regula el depósito en el BHU y la fianza personal.</p>
+                    <p data-role="ambos">La <strong><span class="glossary-term">Ley de Urgente Consideración (LUC)</span></strong> introdujo el sistema de alquiler sin garantía tradicional (para alquileres < 100 UR) con un proceso de desalojo más abreviado <span data-role="arrendador">(beneficio arrendador)</span>.</p>
+                    <p data-role="ambos">La <strong>Ley N°20.380</strong> y el <strong>Decreto N°385/994</strong> regulan la inscripción y garantía de operadores inmobiliarios turísticos en ciertos departamentos.</p>
+                </section>
+
+                 <section id="rescision" class="content-section">
+                    <h3>Módulo 10: Proceso y Consideraciones para la Rescisión del Contrato</h3>
+                    <p data-role="inquilino">Rescindir un contrato de alquiler antes de su finalización puede ser un proceso complejo y generalmente implica ciertas condiciones.</p>
+                    <p data-role="inquilino">En la mayoría de los casos, la rescisión anticipada requerirá una negociación con el propietario o la inmobiliaria y podría acarrear el pago de una multa estipulada en el contrato o la pérdida de la garantía.</p>
+                    <p data-role="inquilino">Sin embargo, si surgen problemas graves en la propiedad que no eran evidentes al inicio del contrato (como humedad severa o problemas estructurales), podrías tener derecho a rescindir el contrato. En estos casos, podría solicitarse una inspección de la garantía (por ejemplo, si es <span class="glossary-term">CGN</span>).</p>
+                    <p data-role="inquilino">Otra alternativa que podrías explorar es la posibilidad de transferir el contrato a otro inquilino que cumpla con los requisitos, siempre con la aprobación del propietario.</p>
+                    <p data-role="inquilino">Te recomendamos leer detenidamente la cláusula de resolución anticipada que pueda estar incluida en el contrato.</p>
+                     <p data-role="inquilino">Bajo el sistema de la <span class="glossary-term">LUC</span> sin garantía, algunos inquilinos ven la posibilidad de simplemente dejar de pagar e irse, aunque esto podría tener consecuencias legales como un proceso de desalojo <span data-role="arrendador">(acción arrendador)</span> y embargo por alquileres impagos <span data-role="arrendador">(acción arrendador)</span>.</p>
+                    <p data-role="inquilino">En cualquier situación de rescisión, te aconsejamos comunicarte con nosotros (Bien Seguro) para analizar las opciones disponibles y buscar la mejor solución posible, intentando siempre llegar a un acuerdo justo con el propietario.</p>
+                </section>
+
+                <section id="desalojos" class="content-section">
+                    <h3>Módulo 11: Información Importante sobre Desalojos</h3>
+                    <p data-role="ambos">La Ley 14.219 establece las causales y los procedimientos para el desalojo de una propiedad. Durante la vigencia de los plazos legales del arrendamiento, no se puede iniciar una acción de desalojo, excepto en casos específicos.</p>
+                    <h4 data-role="arrendador">Causales de Desalojo</h4>
+                    <ul data-role="arrendador">
+                        <li>Incumplimiento del pago del alquiler.</li>
+                        <li>Necesidad del propietario de ocupar la vivienda para sí mismo o para familiares directos.</li>
+                        <li>Necesidad de realizar reconstrucciones o demoliciones en la propiedad.</li>
+                        <li>Estado de ruina del inmueble.</li>
+                        <li>Vencimiento del plazo contractual.</li>
+                    </ul>
+                     <h4 data-role="inquilino">Consideraciones para Inquilinos</h4>
+                     <ul>
+                         <li data-role="inquilino">Existe la figura del "año de gracia" que, en ciertos casos y bajo ciertas normativas (principalmente para fincas construidas antes del 2 de junio de 1968), otorga un plazo adicional al inquilino en caso de desalojo por ciertas causales.</li>
+                         <li data-role="inquilino">Si estás al día con tus pagos (buen pagador), podrías tener plazos más amplios para la desocupación en caso de desalojo por ciertas causales.</li>
+                         <li data-role="inquilino">En caso de entrega voluntaria de la propiedad, debes comunicarlo al Juzgado. Si no lo haces, el propietario puede solicitar una comprobación judicial.</li>
+                         <li data-role="inquilino">Si te encuentras en alguna de las situaciones de vulnerabilidad detalladas en la Ley 14.219 (ej. ahorrista BHU con compromiso de compraventa, adjudicatario de vivienda pública en construcción), el lanzamiento (ejecución del desalojo) podría suspenderse.</li>
+                         <li data-role="inquilino">La ley también protege a los inquilinos ante la supresión o reducción arbitraria de los servicios accesorios a la locación.</li>
+                     </ul>
+                     <h4 data-role="ambos">Procedimiento General</h4>
+                     <ul>
+                         <li data-role="ambos">El procedimiento de desalojo se lleva a cabo ante los Juzgados de Paz del lugar donde se ubica el inmueble.</li>
+                         <li data-role="ambos">Es un proceso por escrito que requiere la presentación del contrato de arrendamiento.</li>
+                         <li data-role="ambos">Durante un juicio de desalojo, cualquiera de las partes puede solicitar una inspección judicial del inmueble para verificar su estado.</li>
+                     </ul>
+                </section>
+
+                <section id="consejos_inquilinos" class="content-section" data-role="inquilino">
+                    <h3>Módulo 12: Consejos para Inquilinos</h3>
+                    <ul>
+                        <li>Considerar los ingresos disponibles, liquidez inicial, urgencia y flexibilidad al elegir una garantía.</li>
+                        <li>Estar preparado financieramente para los costos iniciales.</li>
+                        <li>Siempre consultar y preguntar a la inmobiliaria o al propietario sobre cualquier duda.</li>
+                        <li>Investigar sobre las diferentes opciones de garantía.</li>
+                        <li>Leer detenidamente el contrato de alquiler, incluyendo cláusulas de resolución anticipada si es posible.</li>
+                        <li>Guardar copia de toda la documentación y comunicaciones.</li>
+                    </ul>
+                </section>
+
+                <section id="fraudes" class="content-section" data-role="inquilino">
+                    <h3>Módulo 13: Precauciones Contra Fraudes (Especialmente Alquileres Turísticos)</h3>
+                    <p>Si estás interesado en alquileres temporales o turísticos, te recomendamos ser especialmente cauteloso con anuncios que encuentres en redes sociales o plataformas no verificadas que ofrezcan propiedades a precios demasiado atractivos.</p>
+                    <p>Antes de realizar cualquier pago o acuerdo, es fundamental que te asegures de que la inmobiliaria o el operador esté debidamente registrado en el Ministerio de Turismo.</p>
+                    <p>Esta simple verificación puede evitarte ser víctima de estafas y garantizarte unas vacaciones sin contratiempos.</p>
+                    <p>Recuerda que, de acuerdo con la Ley N°20.380, todos los operadores inmobiliarios que realicen actividades en los departamentos de Maldonado, Rocha, Canelones y Colonia deben estar inscriptos en el Ministerio de Turismo y constituir una garantía conforme al Decreto N°385/994.</p>
+                    <p>Prioriza siempre la transparencia y la confianza en tus interacciones.</p>
+                </section>
+
+                <section id="glosario" class="content-section">
+                    <h3>Módulo 14: Glosario de Términos Útiles</h3>
+                    <ul>
+                        <li><strong class="glossary-term">ANDA:</strong> Asociación Nacional de Afiliados. Mutual que ofrece garantías de alquiler.</li>
+                        <li><strong class="glossary-term">ANTEL:</strong> Empresa estatal de telecomunicaciones (internet, telefonía).</li>
+                        <li><strong class="glossary-term">BHU:</strong> Banco Hipotecario del Uruguay. Banco estatal que gestiona depósitos en garantía y otorga préstamos para vivienda.</li>
+                        <li><strong class="glossary-term">CGN:</strong> Contaduría General de la Nación. Organismo estatal que ofrece garantías de alquiler.</li>
+                        <li><strong class="glossary-term">Clearing de Informes:</strong> Base de datos sobre el historial crediticio de las personas en Uruguay.</li>
+                        <li><strong class="glossary-term">IVA:</strong> Impuesto al Valor Agregado.</li>
+                        <li><strong class="glossary-term">LUC:</strong> Ley de Urgente Consideración. Ley que introdujo modificaciones en diversos ámbitos, incluyendo garantías de alquiler.</li>
+                        <li><strong class="glossary-term">OHR:</strong> Obligaciones Hipotecarias Reajustables. Títulos de deuda emitidos por el BHU.</li>
+                        <li><strong class="glossary-term">OSE:</strong> Obras Sanitarias del Estado. Empresa estatal proveedora de agua potable y saneamiento.</li>
+                        <li><strong class="glossary-term">UI:</strong> Unidad Indexada. Unidad de valor utilizada para actualizar precios y salarios.</li>
+                        <li><strong class="glossary-term">UR:</strong> Unidad Reajustable. Unidad de valor utilizada para determinar montos en contratos de alquiler.</li>
+                        <li><strong class="glossary-term">UTE:</strong> Administración Nacional de Usinas y Trasmisiones Eléctricas. Empresa estatal proveedora de energía eléctrica.</li>
+                    </ul>
+                </section>
+
+                <section id="recursos" class="content-section">
+                    <h3>Módulo 15: Recursos Útiles</h3>
+                    <ul>
+                        <li>Indicadores de Mercado de Alquileres y Compraventa del INE (Instituto Nacional de Estadística).</li>
+                        <li>Preguntas Frecuentes sobre Garantía de Alquileres del MEF (Ministerio de Economía y Finanzas).</li>
+                        <li>Servicio de asesoramiento sobre derechos habitacionales de la Intendencia de Montevideo (Oficina de Rehabilitación Urbana, asesoramiento gratuito miércoles y viernes).</li>
+                        <li>Portales inmobiliarios para buscar propiedades (ej. InfoCasas, Mercado Libre, Gallito Luis, etc.).</li>
+                        <li>Sitio web del Ministerio de Turismo (para verificar registro de operadores turísticos).</li>
+                         <li>Sitio web de <span class="glossary-term">BHU</span>, <span class="glossary-term">ANDA</span>, <span class="glossary-term">CGN</span>, Aseguradoras (para información sobre garantías).</li>
+                    </ul>
+                </section>
+
+                 <section id="apoyo_bs" class="content-section">
+                    <h3>Módulo 16: Estamos Aquí para Brindarte Apoyo</h3>
+                    <p data-role="ambos">En <strong>Inmobiliaria Bien Seguro</strong>, nuestro principal objetivo es ofrecerte un servicio basado en la transparencia, la confianza y la profesionalidad.</p>
+                    <p data-role="inquilino">No dudes en consultarnos y preguntar siempre cualquier duda que te surja durante el proceso de alquiler. Estamos aquí para ayudarte a encontrar tu hogar ideal en Uruguay.</p>
+                    <p data-role="inquilino">Si te encuentras en una situación de vulnerabilidad de derechos habitacionales, también puedes contactar con el Servicio de asesoramiento sobre derechos habitacionales de la Intendencia de Montevideo mencionado en Recursos Útiles.</p>
+                    <p data-role="ambos"><strong>¡Gracias por elegir Inmobiliaria Bien Seguro! Esperamos poder ayudarte a encontrar tu próximo hogar.</strong></p>
+                </section>
+
+            </div> </main>
+    </div>
+
+    <script>
+        // --- Navigation Logic ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+        const sidebar = document.getElementById('sidebar');
+        const contentArea = document.getElementById('content'); // Reference to the main content area scroll
+
+        let currentSectionId = 'bienvenida'; // Default to new welcome section
+
+        function showSection(targetId) {
+            // Fallback if targetId is null or invalid
+            if (!targetId || !document.getElementById(targetId)) {
+                targetId = 'bienvenida';
+            }
+            currentSectionId = targetId; // Update current section
+
+            contentSections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const targetSection = document.getElementById(targetId);
+            const targetLink = sidebar.querySelector(`.nav-link[data-target="${targetId}"]`);
+
+            if (targetSection) {
+                targetSection.classList.add('active');
+                applyRoleFilter(currentFilterRole); // Apply filter to the new section
+            }
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+            contentArea.scrollTop = 0; // Scroll content to top
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                showSection(targetId);
+                // Update hash carefully, avoid adding '#' if href is empty/invalid
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                   window.location.hash = href;
+                }
+            });
+        });
+
+        function showSectionFromHash() {
+            const hash = window.location.hash.substring(1);
+            const targetId = hash && document.getElementById(hash) ? hash : 'bienvenida'; // Default to welcome
+            showSection(targetId);
+        }
+
+        // --- Role Filtering Logic ---
+        const roleFilterButtons = document.querySelectorAll('.role-filter-button');
+        let currentFilterRole = 'todos'; // Keep track of the current filter
+
+        function applyRoleFilter(role) {
+            const activeSection = document.getElementById(currentSectionId);
+            if (!activeSection) return;
+
+            // Select elements within the active section to apply filter
+            const filterableElements = activeSection.querySelectorAll('[data-role], h4, h5, p, li, ul');
+
+            filterableElements.forEach(el => {
+                const elementRole = el.getAttribute('data-role');
+                const parentRole = el.closest('[data-role]')?.getAttribute('data-role'); // Check parent role too
+
+                // Remove previous filter classes
+                el.classList.remove('highlight-role', 'fade-role');
+                el.style.opacity = ''; // Reset opacity first
+
+                if (role !== 'todos') {
+                    // Determine if the element itself or its direct filterable parent matches the role
+                    const isRelevant = elementRole === role || elementRole === 'ambos' || (!elementRole && (parentRole === role || parentRole === 'ambos' || !parentRole));
+                    // Check if the section itself is marked for a specific role
+                    const sectionRole = activeSection.getAttribute('data-role');
+                    const isSectionRelevant = !sectionRole || sectionRole === role || sectionRole === 'ambos';
+
+                    if (isRelevant && isSectionRelevant) {
+                        el.classList.add('highlight-role');
+                    } else {
+                        el.classList.add('fade-role');
+                    }
+                }
+            });
+        }
+
+
+        roleFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                roleFilterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilterRole = button.getAttribute('data-role-filter');
+                applyRoleFilter(currentFilterRole);
+            });
+        });
+
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            showSectionFromHash();
+            // Ensure the 'todos' button is active initially
+            roleFilterButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.role-filter-button[data-role-filter="todos"]').classList.add('active');
+        });
+
+        // Handle hash changes for browser navigation
+        window.addEventListener('hashchange', showSectionFromHash);
+
+    </script>
+
+</body>
+</html>
