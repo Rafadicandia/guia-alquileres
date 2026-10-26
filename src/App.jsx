@@ -9,7 +9,7 @@ const modulesData = [
         content: (
             <>
                 <div className="welcome-header">
-                    <h2>Bienvenido a la Aplicacion Bien Seguro</h2>
+                    <h2>Bienvenido a Bien Seguro</h2>
                     <p className="subtitle">Tu Guia para Alquilar en Uruguay</p>
                 </div>
                 <div className="info-card highlight">
@@ -168,6 +168,44 @@ const modulesData = [
                 </div>
 
                 <div className="guarantee-grid">
+                    
+                    <div className="guarantee-card special">
+                        <div className="guarantee-header">
+                            <span className="guarantee-icon">*</span>
+                            <h4>ANDA</h4>
+                        </div>
+                        <p>Sistema mutual que actua como garante para sus socios activos. Requiere ser socio activo con antiguedad minima.</p>
+                        <div className="guarantee-details">
+                            <span>Mutual</span>
+                            <span>Cuotas bajas</span>
+                            <span>Aceptada por Bien Seguro</span>
+                        </div>
+                    </div>
+                    <div className="guarantee-card special">
+                        <div className="guarantee-header">
+                            <span className="guarantee-icon">*</span>
+                            <h4>CGN</h4>
+                        </div>
+                        <p>Garantia estatal para trabajadores publicos y privados. Cubre hasta el 50% de los ingresos nominales.</p>
+                        <div className="guarantee-details">
+                            <span>Estatal</span>
+                            <span>Sin costo mensual</span>
+                            <span>Aceptada por Bien Seguro</span>
+                        </div>
+                    </div>
+                    <div className="guarantee-card special">
+                        <div className="guarantee-header">
+                            <span className="guarantee-icon">*</span>
+                            <h4>Seguro de Alquiler</h4>
+                        </div>
+                        <p>Ofrecido por aseguradoras privadas como Porto Seguro. Funciona como seguro que cubre al propietario por impago.</p>
+                        <div className="guarantee-details">
+                            <span>Privado</span>
+                            <span>Proceso rapido</span>
+                            <span>Aceptada por Bien Seguro</span>
+                            <a href='https://api.whatsapp.com/send?phone=+59894500474&text=Hola!%20Quiero%20hacer%20una%20consulta!' target="_blank" rel="noopener noreferrer">Contratalo con nosotros</a>
+                        </div>
+                    </div>
                     <div className="guarantee-card">
                         <div className="guarantee-header">
                             <span className="guarantee-icon">*</span>
@@ -177,39 +215,7 @@ const modulesData = [
                         <div className="guarantee-details">
                             <span>UI Indexado</span>
                             <span>Hasta 5 meses</span>
-                        </div>
-                    </div>
-                    <div className="guarantee-card">
-                        <div className="guarantee-header">
-                            <span className="guarantee-icon">*</span>
-                            <h4>ANDA</h4>
-                        </div>
-                        <p>Sistema mutual que actua como garante para sus socios activos. Requiere ser socio activo con antiguedad minima.</p>
-                        <div className="guarantee-details">
-                            <span>Mutual</span>
-                            <span>Cuotas bajas</span>
-                        </div>
-                    </div>
-                    <div className="guarantee-card">
-                        <div className="guarantee-header">
-                            <span className="guarantee-icon">*</span>
-                            <h4>CGN</h4>
-                        </div>
-                        <p>Garantia estatal para trabajadores publicos y privados. Cubre hasta el 50% de los ingresos nominales.</p>
-                        <div className="guarantee-details">
-                            <span>Estatal</span>
-                            <span>Sin costo mensual</span>
-                        </div>
-                    </div>
-                    <div className="guarantee-card">
-                        <div className="guarantee-header">
-                            <span className="guarantee-icon">*</span>
-                            <h4>Seguro de Alquiler</h4>
-                        </div>
-                        <p>Ofrecido por aseguradoras privadas como Porto Seguro. Funciona como seguro que cubre al propietario por impago.</p>
-                        <div className="guarantee-details">
-                            <span>Privado</span>
-                            <span>Proceso rapido</span>
+                            <span>No aceptada por Bien Seguro</span>
                         </div>
                     </div>
                     <div className="guarantee-card">
@@ -221,6 +227,7 @@ const modulesData = [
                         <div className="guarantee-details">
                             <span>Propiedad</span>
                             <span>Requiere documentacion</span>
+                            <span>No aceptada por Bien Seguro</span>
                         </div>
                     </div>
                     <div className="guarantee-card">
@@ -232,9 +239,10 @@ const modulesData = [
                         <div className="guarantee-details">
                             <span>Personal</span>
                             <span>Aval financiero</span>
+                            <span>No aceptada por Bien Seguro</span>
                         </div>
                     </div>
-                    <div className="guarantee-card special">
+                    <div className="guarantee-card">
                         <div className="guarantee-header">
                             <span className="guarantee-icon">*</span>
                             <h4>LUC - Sin Garantia</h4>
@@ -243,6 +251,7 @@ const modulesData = [
                         <div className="guarantee-details">
                             <span>Simplificado</span>
                             <span>&lt; 100 UR</span>
+                            <span>No aceptada por Bien Seguro</span>
                         </div>
                     </div>
                 </div>
@@ -269,7 +278,7 @@ const modulesData = [
                     <div className="process-step">
                         <div className="step-number">1</div>
                         <h4>Encuentra tu propiedad</h4>
-                        <p>Selecciona la propiedad que deseas alquilar de nuestro portafolio</p>
+                        <a href='https://bienseguro.com.uy/propiedades/Alquiler/U$S/Sin_precio_m%C3%ADnimo/Sin_precio_m%C3%A1ximo/Todos_los_tipos/Todas_las_zonas/Todos_los_tipos_agrupadores/Todos_los_estados/menor_precio'>Encontrá la propiedad que buscás en nuestra web</a>
                     </div>
                     <div className="process-arrow">→</div>
                     <div className="process-step">
@@ -288,9 +297,9 @@ const modulesData = [
                 <div className="info-card highlight">
                     <h3>El Deposito de Reserva</h3>
                     <ul>
-                        <li>Monto: <strong>50% del valor de un mes de alquiler</strong></li>
-                        <li>Custodia: Se mantiene en Bien Seguro hasta la firma del contrato</li>
-                        <li>Aplicacion: Se usara para liquidar los costos iniciales del alquiler</li>
+                        <li>Monto: <strong>Un mes de alquiler + IVA</strong></li>
+                        <li>Seña: El monto de la seña cubre los aranceles de la inmobiliaria</li>
+                        
                     </ul>
                 </div>
 
@@ -655,7 +664,7 @@ const modulesData = [
                     <div className="considerations-list">
                         <div className="consideration-item">
                             <span className="consideration-icon">*</span>
-                            <p><strong>Ano de gracia:</strong> En ciertos casos y bajo ciertas normativas (principalmente para fincas construidas antes del 2 de junio de 1968), otorga un plazo adicional al inquilino en caso de desalojo.</p>
+                            <p><strong>Año de gracia:</strong> En ciertos casos y bajo ciertas normativas (principalmente para fincas construidas antes del 2 de junio de 1968), otorga un plazo adicional al inquilino en caso de desalojo.</p>
                         </div>
                         <div className="consideration-item">
                             <span className="consideration-icon">*</span>
@@ -932,55 +941,55 @@ const stageGroups = [
     {
         id: 'inicio',
         title: 'Inicio',
-        icon: '*',
+        
         modules: ['bienvenida']
     },
     {
         id: 'busqueda',
         title: 'Busqueda',
-        icon: '*',
+        
         modules: ['encontrar_propiedad_bs']
     },
     {
         id: 'info',
         title: 'Informacion',
-        icon: '*',
+        
         modules: ['introduccion_general', 'rol_inmobiliarias', 'marco_legal', 'desalojos']
     },
     {
         id: 'documentacion',
         title: 'Documentacion',
-        icon: '*',
+        
         modules: ['requisitos_garantias']
     },
     {
         id: 'reserva_firma',
         title: 'Reserva y Firma',
-        icon: '*',
+       
         modules: ['reserva_bs', 'formalizacion_bs', 'costos_iniciales']
     },
     {
         id: 'alquiler',
         title: 'Durante el Alquiler',
-        icon: '*',
+        
         modules: ['gastos_mensuales', 'rescision']
     },
     {
         id: 'consejos',
         title: 'Consejos',
-        icon: '*',
+        
         modules: ['consejos_inquilinos', 'fraudes']
     },
     {
         id: 'recursos',
         title: 'Recursos',
-        icon: '*',
+        
         modules: ['glosario', 'recursos']
     },
     {
         id: 'contacto',
         title: 'Contacto',
-        icon: '*',
+        
         modules: ['apoyo_bs']
     }
 ];
@@ -1006,48 +1015,50 @@ const icons = {
     'apoyo_bs': '*'
 };
 
-// Componente Menú Hamburguesa para Móvil
-const MobileMenu = ({ isOpen, onClose, stageGroups, activeSection, setActiveSection }) => {
-    if (!isOpen) return null;
-    
+// Componente Menú Desplegable para Móvil (cabecera)
+const MobileMenu = ({ isOpen, onToggle, onClose, stageGroups, activeSection, setActiveSection }) => {
     return (
-        <div className="mobile-menu-overlay" onClick={onClose}>
-            <div className="mobile-menu" onClick={e => e.stopPropagation()}>
-                <div className="mobile-menu-header">
-                    <h3>Menu de Contenidos</h3>
-                    <button className="close-btn" onClick={onClose}>X</button>
-                </div>
-                <nav className="mobile-nav">
-                    {stageGroups.map(group => (
-                        <div key={group.id} className="mobile-group">
-                            <div className="mobile-group-title">
-                                <span className="group-icon">{group.icon}</span>
-                                {group.title}
-                            </div>
-                            <ul className="mobile-modules">
-                                {group.modules.map(moduleId => {
-                                    const module = modulesData.find(m => m.id === moduleId);
-                                    return (
-                                        <li key={moduleId}>
-                                            <button
-                                                className={`mobile-module-btn ${activeSection === moduleId ? 'active' : ''}`}
-                                                onClick={() => {
-                                                    setActiveSection(moduleId);
-                                                    window.location.hash = moduleId;
-                                                    onClose();
-                                                }}
-                                            >
-                                                <span className="module-icon">{icons[moduleId]}</span>
-                                                {module?.title}
-                                            </button>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    ))}
-                </nav>
+        <div className="mobile-header">
+            <div className="mobile-header-bar">
+                <h3 className="mobile-header-title">Guia Bien Seguro</h3>
+                <button className="menu-toggle" onClick={onToggle}>
+                    {isOpen ? '✕' : '☰'}
+                </button>
             </div>
+            {isOpen && (
+                <div className="mobile-dropdown" onClick={e => e.stopPropagation()}>
+                    <nav className="mobile-nav">
+                        {stageGroups.map(group => (
+                            <div key={group.id} className="mobile-group">
+                                <div className="mobile-group-title">
+                                    <span className="group-icon">{group.icon}</span>
+                                    {group.title}
+                                </div>
+                                <ul className="mobile-modules">
+                                    {group.modules.map(moduleId => {
+                                        const module = modulesData.find(m => m.id === moduleId);
+                                        return (
+                                            <li key={moduleId}>
+                                                <button
+                                                    className={`mobile-module-btn ${activeSection === moduleId ? 'active' : ''}`}
+                                                    onClick={() => {
+                                                        setActiveSection(moduleId);
+                                                        window.location.hash = moduleId;
+                                                        onClose();
+                                                    }}
+                                                >
+                                                    <span className="module-icon">{icons[moduleId]}</span>
+                                                    {module?.title}
+                                                </button>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        ))}
+                    </nav>
+                </div>
+            )}
         </div>
     );
 };
@@ -1190,6 +1201,7 @@ function App() {
             />
             <MobileMenu
                 isOpen={mobileMenuOpen}
+                onToggle={() => setMobileMenuOpen(o => !o)}
                 onClose={() => setMobileMenuOpen(false)}
                 stageGroups={stageGroups}
                 activeSection={activeSection}
