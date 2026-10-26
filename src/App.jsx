@@ -55,9 +55,12 @@ const modulesData = [
                         <ul className="portal-list">
                             <li>Mercado Libre</li>
                             <li>InfoCasas</li>
-                            <li>El Buscador</li>
                             <li>Gallito Luis</li>
-                            <li>Argenprop</li>
+                            <li>Inmona</li>
+                            <li>Mi Lugar</li>
+                            <li>Tiktok</li>
+                            <li>Instagram</li>
+                            
                         </ul>
                     </div>
                     <div className="feature-card">
