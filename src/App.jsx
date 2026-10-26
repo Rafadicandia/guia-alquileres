@@ -51,7 +51,7 @@ const modulesData = [
                     <div className="feature-card">
                         <div className="feature-icon">*</div>
                         <h4>Multiples Portales</h4>
-                        <p>Publicamos nuestras propiedades en mas de 10 portales web lideres en Uruguay</p>
+                        <p>Publicamos nuestras propiedades en todas las RRSS y en los portales web lideres en Uruguay</p>
                         <ul className="portal-list">
                             <li>Mercado Libre</li>
                             <li>InfoCasas</li>
@@ -1023,7 +1023,7 @@ const MobileMenu = ({ isOpen, onToggle, onClose, stageGroups, activeSection, set
     return (
         <div className="mobile-header">
             <div className="mobile-header-bar">
-                <h3 className="mobile-header-title">Guia Bien Seguro</h3>
+                <h3 className="mobile-header-title">Guia de alquiler de Bien Seguro</h3>
                 <button className="menu-toggle" onClick={onToggle}>
                     {isOpen ? '✕' : '☰'}
                 </button>
