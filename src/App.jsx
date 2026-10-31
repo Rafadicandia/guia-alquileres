@@ -155,7 +155,7 @@ const modulesData = [
                         <h4>Comprobante de ingresos</h4>
                         <div className="doc-sub">
                             <p><strong>Empleados:</strong> Recibos de sueldo de los ultimos 3 meses. El ingreso mensual debe ser al menos 3 veces el valor del alquiler.</p>
-                            <p><strong>Trabajadores independientes:</strong> Constancia de ingresos emitida por escribano publico + ultimas declaraciones de impuestos (DGI).</p>
+                            <p><strong>Trabajadores independientes:</strong> Constancia de ingresos emitida por escribano publico + ultimas declaraciones de impuestos (DGI). Constancia de BPS</p>
                         </div>
                     </div>
                     <div className="doc-card">
@@ -354,7 +354,7 @@ const modulesData = [
 
                 <div className="info-card tip">
                     <h4>Recomendacion</h4>
-                    <p>Recomendamos que el contrato incluya una clausula de resolucion anticipada para establecer las condiciones en caso de que necesites finalizar el contrato antes del plazo acordado.</p>
+                    <p>TENEMOS ALGUNA RECOMENDACIÓN EN ESTE PASO?</p>
                 </div>
 
                 <div className="info-note">
